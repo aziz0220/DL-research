@@ -45,7 +45,7 @@ RUN --mount=type=bind,source=app.py,target=app.py
 
 RUN --mount=type=bind,source=dataset/real.png,target=real.png
 
-RUN --mount=type=bind, source=test.py target=test.py
+RUN --mount=type=bind,source=test.py,target=test.py
 
 RUN pytest test.py --maxfail=2 --disable-warnings
 
