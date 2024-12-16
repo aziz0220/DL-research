@@ -39,7 +39,7 @@ RUN chmod 600 ../root/.config/kaggle/kaggle.json
 
 RUN kaggle kernels output aziz0220/mastere/best_model_MobileNet_3.keras -p model.keras
 
-COPY ./dataset/image.png .
+COPY ./dataset/real.png ./real.png
 
 RUN --mount=type=bind,source=app.py,target=app.py
 
