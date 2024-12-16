@@ -32,3 +32,21 @@ def test_no_file_selected(client):
     assert response.status_code == 400
     assert response.json == {'error': 'No file selected'}
 
+#def test_valid_image_prediction(client):
+#    """Test case for a valid image file."""
+#    test_image = create_test_image()
+#    data = {"file": (test_image, "real.jpg")}
+#    response = client.post('/predict', data=data, content_type='multipart/form-data')
+#    assert response.status_code == 200
+#    assert 'Predicted' in response.json
+#    expected_prediction = 'Real'
+#    assert response.json['Predicted'] == expected_prediction
+
+
+#def test_invalid_file_format(client):
+#    """Test case for invalid file format."""
+#    data = {"file": (io.BytesIO(b"Invalid content"), "test.txt")}
+#    response = client.post('/predict', data=data, content_type='multipart/form-data')
+#    assert response.status_code == 500
+#    assert 'error' in response.json
+

@@ -23,7 +23,7 @@ jobs:
           file: ./Dockerfile
           platforms: linux/amd64,linux/arm64
           tags: aziz02220/dl-seminary:latest
-          cache-from: type=registry,ref=aziz02220/dl-seminary:cache
-          cache-to: type=registry,ref=aziz02220/dl-seminary:cache,mode=max
+          #cache-from: type=registry,ref=aziz02220/dl-seminary:cache
+          #cache-to: type=registry,ref=aziz02220/dl-seminary:cache,mode=max
           secrets: |
             kaggle_token=${{ secrets.KAGGLE_TOKEN }}
