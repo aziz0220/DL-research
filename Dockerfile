@@ -41,9 +41,11 @@ RUN kaggle kernels output aziz0220/mastere/
 
 COPY ./dataset/real.jpg ./real.jpg
 
-RUN --mount=type=bind,source=app.py,target=./app.py
+COPY ./app.py ./app.py
 
-RUN --mount=type=bind,source=dataset/real.jpg,target=./real.jpg
+COPY ./test.py ./test.py
+
+RUN --mount=type=bind,source=app.py,target=./app.py
 
 RUN --mount=type=bind,source=test.py,target=./test.py
 
