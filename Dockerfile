@@ -29,13 +29,13 @@ RUN --mount=type=cache,target=/root/.cache/pip \
     --mount=type=bind,source=requirements.txt,target=requirements.txt \
     python -m pip install -r requirements.txt
 
-RUN --mount=type=secret, id=kaggle_token, env=KAGGLE_TOKEN
 
 RUN mkdir -p ../root/.config/kaggle
 
-RUN chmod 600 ../root/.config/kaggle/kaggle.json
+RUN --mount=type=secret,id=kaggle_token \
+    cp /run/secrets/kaggle_token /root/.kaggle/kaggle.json
 
-RUN echo ${KAGGLE_TOCKEN} > ../root/.config/kaggle/kaggle.json
+RUN chmod 600 ../root/.config/kaggle/kaggle.json
 
 RUN kaggle kernels output aziz0220/mastere/best_model_MobileNet_3.keras -p model.keras
 
