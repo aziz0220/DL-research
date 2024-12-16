@@ -33,7 +33,7 @@ RUN --mount=type=cache,target=/root/.cache/pip \
 RUN mkdir -p ../root/.config/kaggle
 
 RUN --mount=type=secret,id=kaggle_token \
-    cp /run/secrets/kaggle_token /root/.kaggle/kaggle.json
+    cp /run/secrets/kaggle_token /root/.config/kaggle/kaggle.json
 
 RUN chmod 600 ../root/.config/kaggle/kaggle.json
 
