@@ -41,9 +41,9 @@ RUN kaggle kernels output aziz0220/mastere/best_model_MobileNet_3.keras -p model
 
 COPY ./dataset/image.png .
 
-RUN --mount=type=bind, source=app.py , target=app.py
+RUN --mount=type=bind,source=app.py,target=app.py
 
-RUN --mount=type=bind, source=dataset/real.png target=real.png
+RUN --mount=type=bind,source=dataset/real.png,target=real.png
 
 RUN --mount=type=bind, source=test.py target=test.py
 
