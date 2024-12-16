@@ -35,23 +35,21 @@ RUN mkdir -p ../root/.config/kaggle
 RUN --mount=type=secret,id=kaggle_token \
     cp /run/secrets/kaggle_token /root/.config/kaggle/kaggle.json
 
-RUN chmod 600 ../root/.config/kaggle/kaggle.json
+RUN chmod 600 /root/.config/kaggle/kaggle.json
 
-RUN kaggle kernels output aziz0220/mastere/best_model_MobileNet_3.keras -p model.keras
+RUN kaggle kernels output aziz0220/mastere/
 
 COPY ./dataset/real.jpg ./real.jpg
 
-RUN --mount=type=bind,source=app.py,target=app.py
+RUN --mount=type=bind,source=app.py,target=./app.py
 
-RUN --mount=type=bind,source=dataset/real.jpg,target=real.jpg
+RUN --mount=type=bind,source=dataset/real.jpg,target=./real.jpg
 
-RUN --mount=type=bind,source=test.py,target=test.py
+RUN --mount=type=bind,source=test.py,target=./test.py
 
-RUN ls
+RUN pwd
 
-RUN cat ../root/.config/kaggle/kaggle.json
-
-RUN pytest test.py --maxfail=10 --disable-warnings
+RUN pytest ./test.py --maxfail=10 --disable-warnings
 
 EXPOSE 8000
 
