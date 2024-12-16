@@ -4,3 +4,4 @@ tensorflow
 kaggle
 pytest
 pytest-flask
+pillow
