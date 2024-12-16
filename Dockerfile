@@ -31,7 +31,6 @@ RUN --mount=type=cache,target=/root/.cache/pip \
 
 RUN --mount=type=secret, id=kaggle_token, env=KAGGLE_TOKEN
 
-
 RUN mkdir -p ../root/.config/kaggle
 
 RUN chmod 600 ../root/.config/kaggle/kaggle.json

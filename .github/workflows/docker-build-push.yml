@@ -26,4 +26,4 @@ jobs:
           cache-from: type=registry,ref=aziz02220/dl-seminary:cache
           cache-to: type=registry,ref=aziz02220/dl-seminary:cache,mode=max
           secrets: |
-            "kaggle_token=${{ secrets.KAGGLE_TOKEN }}"
+            kaggle_token=${{ secrets.KAGGLE_TOKEN }}
