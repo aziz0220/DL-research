@@ -42,6 +42,7 @@ def test_valid_image_prediction(client):
     expected_prediction = 'Real'
     assert response.json['Predicted'] == expected_prediction
 
+
 def test_invalid_file_format(client):
     """Test case for invalid file format."""
     data = {"file": (io.BytesIO(b"Invalid content"), "test.txt")}

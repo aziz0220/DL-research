@@ -14,7 +14,7 @@ if not os.path.exists(MODEL_PATH):
 model = load_model(MODEL_PATH)
 model.trainable = False
 
-@app.route('/predict', methods=['POST'])
+app.route('/predict', methods=['POST'])
 def predict():
     if 'file' not in request.files:
         return jsonify({'error': 'No file uploaded'}), 400
@@ -24,18 +24,26 @@ def predict():
         return jsonify({'error': 'No file selected'}), 400
 
     try:
+        print(f"File received: {file.filename}")
+        
         img = load_img(file, target_size=(224, 224))
         img_array = img_to_array(img)
         img_array = img_array / 255.0
         img_array = np.expand_dims(img_array, axis=0)
 
+        print("Image processed successfully")
+
         prediction = model.predict(img_array)
+
+        print(f"Prediction: {prediction}")
 
         result = 'Fake' if prediction[0][0] > 0.5 else 'Real'
         return jsonify({'Predicted': result})
 
     except Exception as e:
+        print(f"Error during prediction: {e}") 
         return jsonify({'error': str(e)}), 500
+
 
 
 if __name__ == '__main__':
