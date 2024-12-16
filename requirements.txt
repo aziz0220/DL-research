@@ -1,0 +1,6 @@
+Flask
+flask-cors
+tensorflow
+kaggle
+pytest
+pytest-flask
