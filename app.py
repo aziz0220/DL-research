@@ -8,7 +8,7 @@ import os
 app = Flask(__name__)
 CORS(app)
 
-MODEL_PATH = 'model.keras'
+MODEL_PATH = 'best_model_MobileNet_3.keras'
 if not os.path.exists(MODEL_PATH):
     raise FileNotFoundError(f"Model file '{MODEL_PATH}' not found!")
 model = load_model(MODEL_PATH)
