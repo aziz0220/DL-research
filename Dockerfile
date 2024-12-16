@@ -43,11 +43,11 @@ COPY ./dataset/real.jpg ./real.jpg
 
 RUN --mount=type=bind,source=app.py,target=app.py
 
-RUN --mount=type=bind,source=dataset/real.png,target=real.png
+RUN --mount=type=bind,source=dataset/real.jpg,target=real.jpg
 
 RUN --mount=type=bind,source=test.py,target=test.py
 
-RUN pytest test.py --maxfail=2 --disable-warnings
+RUN pytest test.py --maxfail=10 --disable-warnings
 
 EXPOSE 8000
 
