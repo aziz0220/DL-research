@@ -14,7 +14,7 @@ if not os.path.exists(MODEL_PATH):
 model = load_model(MODEL_PATH)
 model.trainable = False
 
-app.route('/predict', methods=['POST'])
+@app.route('/predict', methods=['POST'])
 def predict():
     if 'file' not in request.files:
         return jsonify({'error': 'No file uploaded'}), 400
